@@ -1,11 +1,14 @@
 import xlsxwriter
 from main import Parse
+from main import GUI
+from main import Logger
+import config
 
-#writing excel func
+#excel func
 def writer(param):
 
     #put the path to save excel file
-    book = xlsxwriter.Workbook(r"\data.xlsx")
+    book = xlsxwriter.Workbook(config.path)
     page = book.add_worksheet('Items')
 
     row = 0
@@ -29,9 +32,13 @@ def writer(param):
 
     book.close()
 
+    gui = GUI()
+
 #creating an instance of Parse class from main.py
 parser = Parse()
-
 #calling the func to start program
 writer(parser.array)
+
+
     
+
